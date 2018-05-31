@@ -36,7 +36,27 @@ r=remote("140.110.112.29",5128)
 
 
 
+r.recvuntil("Can you help us?\n")
 
+for i in range(100):
+  r.recvline()
+  r.rcvuntil("How many ")
+  b=r.recvuntil(" ").strip().decode('ascii')
+  r.recvline("in ")
+  a=r.recvline().strip().decode('ascii')
+  print(a,b)
+  cnt=0
+  
+  for j in range(len(a)):
+    if a[j]==b:
+      cnt+=1
+  r.sendline(str(cnt))
+  
+ r.interactive()
+ 
+ 
+  
+  
 ```
 
 
