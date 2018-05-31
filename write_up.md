@@ -2,7 +2,7 @@
 
 # BreakallCTF
 
-Misc
+# Misc
 ----------------------------
 雖然是misc，可是除了兩題linux，其他都是ppc
 <br />
