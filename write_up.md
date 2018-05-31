@@ -25,7 +25,8 @@ PPC
 <br />
 1.<br />
 有一題是解100題數英文字母:<br />
-給一段字串，數某字母出現的次數，一百題
+給一段字串，數某字母出現的次數，一百題<br />
+
 
 ```
 #!/usr/bin/python3
@@ -33,9 +34,6 @@ PPC
 from pwn import *
 
 r=remote("140.110.112.29",5128)
-
-
-
 r.recvuntil("Can you help us?\n")
 
 for i in range(100):
@@ -55,9 +53,57 @@ for i in range(100):
  r.interactive()
  
  
-  
-  
+ 
 ```
+
+
+
+
+<br />
+
+2.<br />
+還有這題，對於這題的印象最深，之前上課有做過，<br />
+因為最簡單所以印象最深~<br />
+<br />
+這題是要把華氏轉攝氏，但用分數表達，一樣100題:<br />
+
+```
+#!/usr/bin/python3
+
+from pwn import *
+
+r=remote("140.110.112.29",5127)
+
+r.recvuntil("-110/9\n")
+
+for i in range(100):
+  f=int(r.recvline())
+  c=str((f-32)*5)
+  c+="/9"
+  r.sendline(c)
+  
+r.interactive()
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
