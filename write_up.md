@@ -39,18 +39,18 @@ r=remote("140.110.112.29",5128)
 r.recvuntil("Can you help us?\n")
 
 for i in range(100):
-  r.recvline()
-  r.rcvuntil("How many ")
-  b=r.recvuntil(" ").strip().decode('ascii')
-  r.recvline("in ")
-  a=r.recvline().strip().decode('ascii')
-  print(a,b)
-  cnt=0
+    r.recvline()
+    r.rcvuntil("How many ")
+    b=r.recvuntil(" ").strip().decode('ascii')
+    r.recvline("in ")
+    a=r.recvline().strip().decode('ascii')
+    print(a,b)
+    cnt=0
   
-  for j in range(len(a)):
-    if a[j]==b:
-      cnt+=1
-  r.sendline(str(cnt))
+    for j in range(len(a)):
+        if a[j]==b:
+            cnt+=1
+    r.sendline(str(cnt))
   
  r.interactive()
  
@@ -79,10 +79,10 @@ r=remote("140.110.112.29",5127)
 r.recvuntil("-110/9\n")
 
 for i in range(100):
-  f=int(r.recvline())
-  c=str((f-32)*5)
-  c+="/9"
-  r.sendline(c)
+    f=int(r.recvline())
+    c=str((f-32)*5)
+    c+="/9"
+    r.sendline(c)
   
 r.interactive()
 
@@ -119,14 +119,14 @@ f3 =lambda x: 7*(x**3) + 5*(x**2)
 f4 =lambda x: x**2 + 4*x + 3
 
 for i in range(100):
-  r.recvline()
-  r.recvuntil("function : ")
-  a=r.recvline().strip().decode('ascii')
-  r.recvuntil("x = ")
-  b=r.recvline.strip().decode('ascii')
-  c=str(eval("f" + a + "(" + b + ")"))
-  print(a,b,c)
-  r.sendline(c.strip())
+    r.recvline()
+    r.recvuntil("function : ")
+    a=r.recvline().strip().decode('ascii')
+    r.recvuntil("x = ")
+    b=r.recvline.strip().decode('ascii')
+    c=str(eval("f" + a + "(" + b + ")"))
+    print(a,b,c)
+    r.sendline(c.strip())
   
 r.interactive()
 
@@ -146,42 +146,42 @@ r=remote("140.110.112.29",5123)
 r.recvline()
 
 def add(m,n):
-  e=''
-  for i in range(len(m)):
-    if ord(m[i])>=65 and ord(m[i])<=90:
-      e+=chr(65 + (ord(m[i]) - 65 + n)%26)
-    else:
-      e+=m[i]
-  return e
+    e=''
+    for i in range(len(m)):
+      if ord(m[i])>=65 and ord(m[i])<=90:
+          e+=chr(65 + (ord(m[i]) - 65 + n)%26)
+      else:
+          e+=m[i]
+    return e
   
 def minus(m,n):
-  e=''
-  for i in range(len(m)):
-    if ord(m[i])>=65 and ord(m[i])<=90:
-      e+=chr(90 - (90 - ord(m[i]) + n)%26)
-    else:
-      e+=m[i]
-  return e
+    e=''
+    for i in range(len(m)):
+      if ord(m[i])>=65 and ord(m[i])<=90:
+          e+=chr(90 - (90 - ord(m[i]) + n)%26)
+      else:
+          e+=m[i]
+    return e
   
   
  for i in range(100):
-  r.recvline()
-  r.recvuntil("word by ")
-  a=r.recvuntil(" ").strip().decode('ascii')
-  r.recvuntil(": ")
-  b=r.recvline().decode('ascii')
+    r.recvline()
+    r.recvuntil("word by ")
+    a=r.recvuntil(" ").strip().decode('ascii')
+    r.recvuntil(": ")
+    b=r.recvline().decode('ascii')
   
-  d=''
+    d=''
   
-  if a[0]=="+":
-    c=int(a.strip("+"))
-    d=add(b,c)
-  elif a[0]=="-":
-    c=int(a.strip("+"))
-    d=minus(b,c)
+    if a[0]=="+":
+        c=int(a.strip("+"))
+        d=add(b,c)
+    elif a[0]=="-":
+        c=int(a.strip("+"))
+        d=minus(b,c)
   
-  print(a,b,d)
-  r.sendline(str(d).strip())
+    print(a,b,d)
+    r.sendline(str(d).strip())
  
  r.interactive()
   
