@@ -132,7 +132,60 @@ r.interactive()
 
 ```
 
+<br />
+4.<br />
+至於這題則是一百道凱薩位移:
 
+```
+#!/usr/bin/python3
+
+from pwn import *
+
+r=remote("140.110.112.29",5123)
+r.recvline()
+
+def add(m,n):
+  e=''
+  for i in range(len(m)):
+    if ord(m[i])>=65 and ord(m[i])<=90:
+      e+=chr(65 + (ord(m[i]) - 65 + n)%26)
+    else:
+      e+=m[i]
+  return e
+  
+def minus(m,n):
+  e=''
+  for i in range(len(m)):
+    if ord(m[i])>=65 and ord(m[i])<=90:
+      e+=chr(90 - (90 - ord(m[i]) + n)%26)
+    else:
+      e+=m[i]
+  return e
+  
+  
+ for i in range(100):
+  r.recvline()
+  r.recvuntil("word by ")
+  a=r.recvuntil(" ").strip().decode('ascii')
+  r.recvuntil(": ")
+  b=r.recvline().decode('ascii')
+  
+  d=''
+  
+  if a[0]=="+":
+    c=int(a.strip("+"))
+    d=add(b,c)
+  elif a[0]=="-":
+    c=int(a.strip("+"))
+    d=minus(b,c)
+  
+  print(a,b,d)
+  r.sendline(str(d).strip())
+ 
+ r.interactive()
+  
+
+```
 
 
 
