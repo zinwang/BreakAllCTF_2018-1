@@ -94,10 +94,43 @@ r.interactive()
 
 3.<br />
 這題也是上課講過的，利用lambda函數，<br />
-他給四條公式:<br />
-f0(x) = 3x^2 + x +3
-f1(x) = 5x^2 + 8
-f2(x) = 4*x^3 + 6x +6
+他給五條公式:<br />
+f0(x) = 3x^2 + x +3<br />
+f1(x) = 5x^2 + 8<br />
+f2(x) = 4x^3 + 6x +6<br />
+f3(x) = 7x^3 + 5x^2<br />
+f4(x) = x^2 + 4x + 3<br />
+<br />
+然後問一百道題目，看是要用哪一條公式並帶入x值:<br />
+
+```
+#!/usr/bin/python3
+
+from pwn import *
+
+r=remote("140.110.112.29",5124)
+
+r.recvuntil("f(x) = 28\n")
+
+f0 =lambda x: 3*(x**2) + x + 3
+f1 =lambda x: 5*(x**2) + 8
+f2 =lambda x: 4*(x**3) + 6*x + 6
+f3 =lambda x: 7*(x**3) + 5*(x**2)
+f4 =lambda x: x**2 + 4*x + 3
+
+for i in range(100):
+  r.recvline()
+  r.recvuntil("function : ")
+  a=r.recvline().strip().decode('ascii')
+  r.recvuntil("x = ")
+  b=r.recvline.strip().decode('ascii')
+  c=str(eval("f" + a + "(" + b + ")"))
+  print(a,b,c)
+  r.sendline(c.strip())
+  
+r.interactive()
+
+```
 
 
 
