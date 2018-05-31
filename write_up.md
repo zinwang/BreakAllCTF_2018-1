@@ -216,7 +216,13 @@ web實在沒時間研究，只解了3題<br />
 2.<br />
 有一題是簡單的LFI，題目網址後面加/flag答案就出來了<br />
 
-可以參考類似的題目:[MyFirstSecurity-Web](https://github.com/zinwang/CTF_write_ups/tree/master/writes_up/Web)
+可以參考類似的題目: [MyFirstSecurity-Web](https://github.com/zinwang/CTF_write_ups/tree/master/writes_up/Web) Web第五題<br />
+
+<br />
+3.<br />
+然後有一題是302重導，利用curl [網址]，好像不是馬上出現flag，後來過程有點記憶模糊了，<br />
+不過curl 後大概後面就能順利找到flag了!
+<br />
 
 
 
