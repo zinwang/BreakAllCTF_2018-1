@@ -216,7 +216,7 @@ web實在沒時間研究，只解了3題<br />
 2.<br />
 有一題是簡單的LFI，題目網址後面加/flag答案就出來了<br />
 
-可以參考類似的題目: [MyFirstSecurity-Web](https://github.com/zinwang/CTF_write_ups/tree/master/writes_up/Web) Web第五題<br />
+可以參考類似的題目: [MyFirstSecurity-Web](https://github.com/zinwang/CTF_2018/blob/master/Web101) Web第五題<br />
 
 <br />
 3.<br />
