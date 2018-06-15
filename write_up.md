@@ -16,7 +16,7 @@ Linux
 
 兩題都是很簡單的linux<br />
 一題是用 ```ls -al ``` 找到隱藏的檔案<br />
-而另一題則是```tar -zxvf```解壓tar.gz的檔案<br />
+而另一題則是到tmp資料夾```tar -zxvf```解壓tar.gz的檔案<br />
 都是做到爛的題目<br />
 
 PPC
